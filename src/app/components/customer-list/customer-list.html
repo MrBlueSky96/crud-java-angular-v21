@@ -1,19 +1,35 @@
-<h2>Lista de Customers</h2>
+<div class="container mt-4">
 
-@if (customers().length === 0) {
+  <h2>Customers</h2>
+
+  @if (customers().length === 0) {
 
   <p>No hay customers disponibles</p>
 
 } @else {
 
-  <ul>
-    @for (customer of customers(); track customer.id) {
+  <table class="table table-striped table-hover">
 
-      <li>
-        {{ customer.firstName }} {{ customer.lastName }}
-      </li>
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Email</th>
+      </tr>
+    </thead>
 
-    }
-  </ul>
+    <tbody>
+      @for (customer of customers(); track customer.id) {
+        <tr>
+          <td>{{customer.firstName}}</td>
+          <td>{{customer.lastName}}</td>
+          <td>{{customer.email}}</td>
+        </tr>
+      }
+    </tbody>
+
+  </table>
 
 }
+
+</div>
