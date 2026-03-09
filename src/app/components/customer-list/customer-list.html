@@ -1,1 +1,19 @@
-<p>customer-list works!</p>
+<h2>Lista de Customers</h2>
+
+@if (customers().length === 0) {
+
+  <p>No hay customers disponibles</p>
+
+} @else {
+
+  <ul>
+    @for (customer of customers(); track customer.id) {
+
+      <li>
+        {{ customer.firstName }} {{ customer.lastName }}
+      </li>
+
+    }
+  </ul>
+
+}
