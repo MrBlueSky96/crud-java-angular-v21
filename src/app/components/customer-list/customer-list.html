@@ -1,10 +1,10 @@
 <div class="container mt-4">
 
-  <h2>Customers</h2>
+  <h2>Clientes</h2>
 
   @if (customers().length === 0) {
 
-  <p>No hay customers disponibles</p>
+  <p>No hay clientes en la lista</p>
 
 } @else {
 
@@ -15,6 +15,7 @@
         <th>Nombre</th>
         <th>Apellidos</th>
         <th>Email</th>
+        <th>Acciones</th>
       </tr>
     </thead>
 
@@ -24,6 +25,18 @@
           <td>{{customer.firstName}}</td>
           <td>{{customer.lastName}}</td>
           <td>{{customer.email}}</td>
+          <td>
+            <button 
+              class="btn btn-warning btn-sm me-2"
+              (click)="editCustomer(customer.id)">
+              Editar
+            </button>
+            <button 
+              class="btn btn-danger btn-sm"
+              (click)="deleteCustomer(customer.id)">
+              Eliminar
+            </button>
+          </td>
         </tr>
       }
     </tbody>
